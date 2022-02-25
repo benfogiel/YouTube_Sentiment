@@ -1,15 +1,17 @@
+import pdb
+
 from textblob import TextBlob
 from statistics import mean
 
-def analyze_sent(file):
+def get_sentiments(file):
     """
-    param file: (.txt file) each row is a phrase of interest
-    return: (float - [-1,1]) mean of polarity
+    param file: (str - .txt file) each row is a phrase of interest
+    return: (list - floats) list of polarity values [-1,1]
     """
     polarities = []
-    with open(file) as f:
-        phrase = f.readline()
-        testimonial = TextBlob(phrase)
-        polarities.append(testimonial.sentiment.polarity)
+    with open(file, "r") as f:
+        for phrase in f:
+            testimonial = TextBlob(phrase)
+            polarities.append(testimonial.sentiment.polarity)
 
-    return mean(polarities)
+    return polarities
