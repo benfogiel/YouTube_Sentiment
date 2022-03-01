@@ -13,12 +13,11 @@ def main():
     file_name = 'data/markiplier.csv'  # output file name here (will overwrite an existing file with the same name)
     comments_per_vid = 100  # number of comments to scrape per video
 
-    # write comment csv
-    scrape.get_comments(videos, file_name, comments_per_vid)
-
+    # get comments
+    df = scrape.get_comments(videos, file_name, comments_per_vid)
     # add sentiment analysis score column
-    df = pd.read_csv(file_name)
     df['sent_score'] = sent.get_sentiments(df['comment'])
+    # write csv
     df.to_csv(file_name, encoding='utf-8', index=False)
 
 # Press the green button in the gutter to run the script.
