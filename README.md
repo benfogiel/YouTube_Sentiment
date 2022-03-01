@@ -1,10 +1,10 @@
 # YouTube Sentiment Analyzer
 
-Given a list of YouTube video IDs and the number of comments to scrape from each video, this program will write a csv file containing each video ID, the comment, the comment date, and the sentiment score [-1, +1] where -1 is most negative, 0 is neutral, and +1 is most positive sentiment.
+Given a list of YouTube video IDs and the number of comments to scrape from each video, this program will write a csv file containing: each video ID, the comment text, comment date, and the sentiment score [-1, +1] where -1 is most negative, 0 is neutral, and +1 is most positive sentiment.
 
 This uses YouTube's Data API to scrape comments which can be obtained from [here](https://developers.google.com/youtube/v3).
 
-The sentiment scores are obtained using the TextBlob python package which uses Natural Language Processing (NLP).
+The sentiment scores are obtained using the TextBlob python package which uses Natural Language Processing (NLP) techinques.
 
 **Usage:**
  - Activate virtual environment: ```source .gitignore/venv/bin/activate```
