@@ -18,6 +18,9 @@ def get_comments(videos, file_name, comments_per_vid):
             if '\n' in line: line = line[:-1]
             video_ids.append(line)
 
+    # delete duplicates
+    video_ids = list(dict.fromkeys(video_ids))
+
     # get all the snippets
     snippets = []
     for video in video_ids:
@@ -53,7 +56,7 @@ def scrape(video_id, count):
         api_service_name, api_version, developerKey = DEVELOPER_KEY)
 
     request = youtube.commentThreads().list(
-        part="snippet",
+        part="snippet,replies",
         maxResults=count,
         order="time",
         textFormat="plainText",
