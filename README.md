@@ -6,6 +6,11 @@ This uses YouTube's Data API to scrape comments which can be obtained from [here
 
 The sentiment scores are obtained using the TextBlob python package which uses Natural Language Processing (NLP) techinques.
 
+**Architecture:**
+
+<img width="400" alt="YT_sent_arch" src="https://user-images.githubusercontent.com/52505296/156244636-0432e313-7420-4351-9120-21f0b372aada.jpeg">
+
+
 **Usage:**
  - Activate virtual environment: ```source .gitignore/venv/bin/activate```
  - Compile a list of YouTube video IDs into a txt file (example of video ID is shown below). Each entry is one line.<img width="289" alt="Untitled12" src="https://user-images.githubusercontent.com/52505296/156219547-e31669cc-0d2e-442b-ac63-925a2aaeea40.png">
