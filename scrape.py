@@ -26,12 +26,28 @@ def get_comments(videos, file_name, comments_per_vid):
     for video in video_ids:
         snippets.append(scrape(video_id=video, count=comments_per_vid))
 
-    data = {'video_id': [], 'comment': [], 'comment_date': [], 'sent_score': []}
+    data = {'video_id': [], 'author': [], 'comment': [], 'comment_date': [], 'sent_score': []}
     for snippet in snippets:
         for i, k in enumerate(snippet['items']):
+            # top level comment
             data['video_id'].append(k['snippet']['videoId'])
+            data['author'].append(k['snippet']['topLevelComment']['snippet']['authorChannelId']['value'])
             data['comment'].append(k['snippet']['topLevelComment']['snippet']['textOriginal'].replace('\n', ' '))
             data['comment_date'].append(k['snippet']['topLevelComment']['snippet']['publishedAt'])
+            # get replies
+            replies = {}
+            try:
+                replies = k['replies']
+            except:
+                # no replies
+                pass
+            if len(replies):
+                for r in replies['comments']:
+                    data['video_id'].append(r['snippet']['videoId'])
+                    data['author'].append(r['snippet']['authorChannelId']['value'])
+                    data['comment'].append(
+                        r['snippet']['textOriginal'].replace('\n', ' '))
+                    data['comment_date'].append(r['snippet']['publishedAt'])
     # add Nan values for sent_score - these values will be added later
     data['sent_score'] = np.full(len(data['video_id']), np.nan)
 
@@ -58,7 +74,7 @@ def scrape(video_id, count):
     request = youtube.commentThreads().list(
         part="snippet,replies",
         maxResults=count,
-        order="time",
+        order="relevance",
         textFormat="plainText",
         videoId = video_id,
     )
