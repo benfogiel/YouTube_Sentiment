@@ -1,4 +1,4 @@
-video_id,author,comment,comment_date,reply,sent_score
+video_id,viewer_id,comment,comment_date,reply,sent_score
 wHBikjSGfaw,UCKq31iNj-YttPy2S7pQ8F8A,"Fun fact: When apples rot, they ferment: the sugars turn into alcohol. That 'sick bee' was drunk :)",2021-10-01T10:36:54Z,False,-0.10357142857142859
 wHBikjSGfaw,UC0cdQTj7TzEcCbnfp55jYYw,I used to just scoop up the drunk yellowjackets from the rotting crabapples that would fall into my yard from the neighbor's tree. Thought it was the coolest thing until one of the fuckers stung my thumb lol,2022-03-17T09:34:33Z,True,0.15000000000000002
 wHBikjSGfaw,UCqz8REYHHLbDNnid1RBG0ZQ,Ha,2022-03-04T09:33:22Z,True,0.0
