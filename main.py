@@ -9,8 +9,8 @@ def main():
     """
     scrapes comments, runs sentiment analysis, and stores into csv
     """
-    videos = 'data/josh_videos.txt'  # txt containing all of the video IDs
-    file_name = 'data/josh.csv'  # output file name here (will overwrite an existing file with the same name)
+    videos = 'data/ddoi_videos.txt'  # txt containing all of the video IDs
+    file_name = 'data/ddoi.csv'  # output file name here (will overwrite an existing file with the same name)
     comments_per_vid = 100  # number of comments to scrape per video
 
     # get comments
